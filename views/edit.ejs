@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit Book</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #f4f4f4;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 220px;
+            height: 100vh;
+            background: #333;
+            color: white;
+            position: fixed;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .sidebar a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .sidebar a:hover {
+            color: #00d5ff;
+        }
+
+        /* MAIN */
+        .main {
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        .form-box {
+            width: 400px;
+            background: white;
+            padding: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0 15px;
+        }
+
+        .btn {
+            padding: 10px;
+            color: white;
+            background: #333;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: black;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                text-align: center;
+            }
+
+            .sidebar a {
+                display: inline-block;
+                margin: 10px;
+            }
+
+            .main {
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            .form-box {
+                width: 100%;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>📚 Books</h2>
+        <a href="/">Dashboard</a>
+        <a href="/add">Add Book</a>
+    </div>
+
+    <div class="main">
+        <h1>Edit Book</h1>
+
+        <div class="form-box">
+            <form action="/edit/<%= book._id %>" method="POST">
+
+                <label>Book Name</label>
+                <input type="text" name="name" value="<%= book.name %>" required>
+
+                <label>Author Name</label>
+                <input type="text" name="author" value="<%= book.author %>" required>
+
+                <label>Price ₹</label>
+                <input type="number" name="price" value="<%= book.price %>" required>
+
+                <button class="btn">Update Book</button>
+
+            </form>
+
+
+
+        </div>
+    </div>
+
+</body>
+
+</html>
